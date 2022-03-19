@@ -125,7 +125,30 @@ def avail_diagonal(board, available_moves, piece_col, piece_row):
             break
         available_moves[row][col] = 1
         if (board[row][col] > 0):
-            break    
+            break
+
+    row = start_row
+    col = start_col
+    while row < TOT_ROWS - 1 and col > 0:
+        row += 1
+        col -= 1
+        if (board[row][col] < 0):
+            break
+        available_moves[row][col] = 1
+        if (board[row][col] > 0):
+            break
+
+    row = start_row
+    col = start_col
+    while row > 0 and col > 0:
+        row -= 1
+        col -= 1
+        if (board[row][col] < 0):
+            break
+        available_moves[row][col] = 1
+        if (board[row][col] > 0):
+            break
+
     return available_moves
 
 
