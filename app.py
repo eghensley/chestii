@@ -35,23 +35,29 @@ class gameboard:
         
         white_square = True
         
-        top_bottom = BORDER_COLOR + '_' * TOT_COLS * 10 + END_COLOR
-        row_divider = BORDER_COLOR + '-' * TOT_COLS * 10  + END_COLOR
+        top_bottom = BORDER_COLOR + '_' * int(TOT_COLS * 9.5 + 1) + END_COLOR
+        row_divider = BORDER_COLOR + '-' * int(TOT_COLS * 9.5 + 1)  + END_COLOR
         print(top_bottom)
         print(row_divider)
         for board_row in self._gameboard:
+            
+            row_pad_white = white_square
+            
             row_pad = BORDER_COLOR + '||' + END_COLOR
             for col in range(TOT_COLS):
                 style = None
                 fg = '31'
                 bg = None
-                if white_square:
+                if row_pad_white:
                     style = '1'
                     bg = '47'
                 else:
                     style = '0'
                     bg = '40'
-                row_pad += '\x1b[' + ';'.join([str(style), str(fg), str(bg)]) + 'm' + ' ' * 8 + BORDER_COLOR + END_COLOR + '|' + END_COLOR
+                row_pad += '\x1b[' + ';'.join([str(style), str(fg), str(bg)]) + 'm' + ' ' * 8 + END_COLOR + BORDER_COLOR + '|' + END_COLOR
+                
+                row_pad_white = not row_pad_white
+
             row_pad += BORDER_COLOR + '|' + END_COLOR
             print(row_pad)
             
