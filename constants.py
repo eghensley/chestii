@@ -11,14 +11,20 @@ TOT_COLS = 5 # was 4, needs to be odd
 # TODO update max points to reflect new column
 # 39/(64/25)
 MAX_POINTS = 15
+EMPTY_SQUARES = [i for i in range(TOT_ROWS * TOT_COLS)]
+
+RED_WIN_SCORE = 0
+GREEN_WIN_SCORE = 0
 
 END_COLOR = '\x1b[0m'
 BORDER_COLOR = '\x1b[0;30;47m'
 # TODO: use weights?
 PIECES = {
-    1: {'value': 1, 'max': 6, 'weight': 1, 'name': 'pawn'},
-    2: {'value': 3, 'max': 2, 'weight': 1, 'name': 'knight'},
-    3: {'value': 3, 'max': 2, 'weight': 1, 'name': 'bishop'},
-    4: {'value': 5, 'max': 2, 'weight': 1, 'name': 'rook'},
-    5: {'value': 9, 'max': 1, 'weight': 1, 'name': 'queen'}
+    1: {'value': 1, 'max': 6, 'weight': 1, 'name': 'Pawn', 'symbol': 'P'},
+    2: {'value': 3, 'max': 2, 'weight': 1, 'name': 'Knight', 'symbol': 'K'},
+    3: {'value': 3, 'max': 2, 'weight': 1, 'name': 'Bishop', 'symbol': 'B'},
+    4: {'value': 5, 'max': 2, 'weight': 1, 'name': 'Rook', 'symbol': 'R'},
+    5: {'value': 9, 'max': 1, 'weight': 1, 'name': 'Queen', 'symbol': 'Q'}
 }
+
+TEAM_TOGGLE = {'RED': 'GREEN', 'GREEN': 'RED'}
